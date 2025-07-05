@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctors Available</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-10">
+    <div class="container mx-auto bg-white p-6 rounded-lg shadow-lg">
+        <h1 class="text-3xl font-bold mb-4 text-center">Doctors Available</h1>
+        <div id="doctorResult" class="mt-6"></div>
+        <button onclick="showDoctors()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Show Doctors</button>
+    </div>
+
+    <script>
+        function showDoctors() {
+            fetch('/doctors')
+                .then(response => response.json())
+                .then(data => {
+                    let doctorInfo = "<h3 class='text-xl font-semibold mb-4'>Available Doctors:</h3>";
+                    data.forEach(doc => {
+                        doctorInfo += `
+                        <div class="border-b border-gray-300 py-4">
+                            <p><strong>${doc.Specialist}</strong>: ${doc.Name}</p>
+                            <p>Mobile: ${doc.Mobile}</p>
+                            <p>Email: ${doc.Email}</p>
+                        </div>`;
+                    });
+                    document.getElementById('doctorResult').innerHTML = doctorInfo;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>

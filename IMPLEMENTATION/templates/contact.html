@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - HealthGuide</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  {% include 'header.html' %}
+
+  <!-- Contact Section -->
+  <section class="contact-section py-5 mt-5">
+    <div class="container">
+      <div class="row">
+        <!-- Contact Form -->
+        <div class="col-md-6 mb-4">
+          <h2>Get in Touch</h2>
+          <p class="lead mb-4">We're here to help and answer any questions you might have.</p>
+
+          <form id="contactForm" onsubmit="return handleSubmit(event)">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Message</label>
+              <textarea class="form-control" id="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="col-md-6 mb-4">
+          <h2>Contact Information</h2>
+          <div class="contact-info mt-4">
+            <div class="d-flex mb-3">
+              <i class="fas fa-map-marker-alt fa-2x text-primary me-3"></i>
+              <div>
+                <h5>Address</h5>
+                <p>1234 Medical Drive, Health Valley, CA 90210</p>
+              </div>
+            </div>
+            <div class="d-flex mb-3">
+              <i class="fas fa-phone fa-2x text-primary me-3"></i>
+              <div>
+                <h5>Phone</h5>
+                <p>+1 (555) 123-4567</p>
+              </div>
+            </div>
+            <div class="d-flex mb-3">
+              <i class="fas fa-envelope fa-2x text-primary me-3"></i>
+              <div>
+                <h5>Email</h5>
+                <p>info@healthguide.com</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Google Maps -->
+          <div class="map-container mt-4">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3301.9600740225597!2d-118.40035668478265!3d34.09000918059801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bb9292785a21%3A0x2b828ee67134dcb4!2s1234%20Medical%20Dr%2C%20Los%20Angeles%2C%20CA%2090210!5e0!3m2!1sen!2sus!4v1712799241220!5m2!1sen!2sus"
+              width="100%"
+              height="300"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% include 'footer.html' %}
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !message) {
+        alert("Please fill in all fields.");
+        return false;
+      }
+
+      alert(`Thank you, ${name}! Your message has been sent.`);
+      document.getElementById('contactForm').reset();
+      return false;
+    }
+  </script>
+</body>
+</html>

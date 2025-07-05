@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Footer</title>
+  <style>
+    .footer {
+      background: black;
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer > div {
+      margin: 10px 20px 10px 0;
+    }
+
+    .footer h4 {
+      margin-bottom: 10px;
+    }
+
+    .footer a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .footer a:hover {
+      color: lightgray;
+    }
+
+    .footer-bottom {
+      width: 100%;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    @media (max-width: 768px) {
+      .footer {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer > div {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="footer">
+    <div>
+      <h4>Quick Links</h4>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('services') }}">Services</a>
+        <a href="{{ url_for('developer') }}">Resources</a>
+        <a href="{{ url_for('blog') }}">Blog</a>
+        <a href="{{ url_for('contact') }}">Contact</a> 
+    </div>
+    <div>
+      <h4>Contacts</h4>
+      <a href="tel:+18005554328">+1 (800) 555-HEALTH</a>
+      <a href="tel:+18889992273">+1 (888) 999-CARE</a>
+      <a href="mailto:info@aihealthcare.org">info@aihealthcare.org</a>
+      <a href="#">1234 Medical Drive, Health Valley, CA 90210</a>
+    </div>
+    <div>
+      <h4>Socials</h4>
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+      <a href="#">Instagram</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Twitter</a>
+    </div>
+    <div class="footer-bottom">
+      <p>© AI Healthcare Assistant | All rights reserved</p>
+    </div>
+  </div>
+</body>
+</html>
